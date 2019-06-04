@@ -1,6 +1,8 @@
 package aplicacao;
 
+import entidades.Conta;
 import entidades.ContaEmpresa;
+import entidades.ContaPoupanca;
 
 public class ProgPrincipal {
 
@@ -17,6 +19,34 @@ public class ProgPrincipal {
 		
 		System.out.println(conta.getSaldo());
 
+		Conta cc = new Conta(1001, "Alex", 0.0);
+		ContaEmpresa ccE = new ContaEmpresa(1002, "Maria", 0.0, 500.00);
+		
+		//UPCASTING
+		
+		Conta cc1 = ccE;
+		Conta cc2 = new ContaEmpresa(1003, "Bob", 0.0, 200.0);
+		Conta cc3 = new ContaPoupanca(1004, "Anna", 0.0, 0.01);
+		
+		//DOWNCASTING
+		
+		ContaEmpresa ccE4  = (ContaEmpresa)cc2;
+		ccE4.emprestimo(100.0);
+		
+		// Erro/solução - ContaEmpresa cc5 = (ContaEmpresa)cc3;
+		
+		if (cc3 instanceof ContaEmpresa) { // instanceof testa se uma classe é uma instancia de outra classe
+			ContaEmpresa cc5 = (ContaEmpresa)cc3;
+			cc5.emprestimo(200.0);
+			System.out.println("Emprestimo");
+		}
+		
+		if (cc3 instanceof ContaPoupanca ) {
+			ContaPoupanca cc5 = (ContaPoupanca)cc3;
+			cc5.atualizaSaldo();
+			System.out.println("Update");
+		}
+		
 	}
 
 }
