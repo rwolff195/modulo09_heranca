@@ -13,6 +13,10 @@ public class ProgPrincipal {
 		comum, mais um limite de empréstimo e uma operação de realizar empréstimo.
 		*/
 		
+		System.out.println("***************************************");
+		System.out.println("*************** Herança ***************");
+		System.out.println("***************************************");
+		
 		ContaEmpresa conta = new ContaEmpresa(0010, "Rafael", 0.0, 500.00);
 		
 		conta.emprestimo(500.00);
@@ -21,6 +25,10 @@ public class ProgPrincipal {
 
 		Conta cc = new Conta(1001, "Alex", 0.0);
 		ContaEmpresa ccE = new ContaEmpresa(1002, "Maria", 0.0, 500.00);
+		
+		System.out.println("***************************************");
+		System.out.println("****** Upcasting e Downcasting ********");
+		System.out.println("***************************************");
 		
 		//UPCASTING
 		
@@ -47,6 +55,21 @@ public class ProgPrincipal {
 			System.out.println("Update");
 		}
 		
+		System.out.println("***************************************");
+		System.out.println("************ Sobreposição**************");
+		System.out.println("***************************************");
+		//Normal
+		Conta conta1 = new Conta(1001, "Alex", 1000.00);
+		conta1.saque(200.00);
+		System.out.println(conta1.getSaldo());
+		//Sobreposição
+		Conta conta2 = new ContaPoupanca(1002, "Maria", 1000.00, 0.01);
+		conta2.saque(200.00);
+		System.out.println(conta2.getSaldo());
+		//Super
+		Conta conta3 = new ContaEmpresa(1003, "Bob", 1000.00, 500.00);
+		conta3.saque(200.00);
+		System.out.println(conta3.getSaldo());
 	}
 
 }

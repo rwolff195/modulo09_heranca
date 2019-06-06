@@ -33,5 +33,11 @@ public class ContaEmpresa extends Conta { // extends diz que a classe criada her
 		}
 	}
 	
+	// Sobreposição + uso do super
+	@Override
+	public final void saque(double valor) { //evita que a classe/Método seja herdada
+		super.saque(valor);
+		saldo -= 2.0;
+	}
 	
 }
