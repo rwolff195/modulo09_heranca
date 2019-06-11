@@ -70,6 +70,21 @@ public class ProgPrincipal {
 		Conta conta3 = new ContaEmpresa(1003, "Bob", 1000.00, 500.00);
 		conta3.saque(200.00);
 		System.out.println(conta3.getSaldo());
+		
+		
+		System.out.println("***************************************");
+		System.out.println("*********** Poliformismo **************");
+		System.out.println("***************************************");
+		
+		Conta x = new Conta(1020, "Alex", 1000.00);
+		Conta y = new ContaPoupanca(1023, "Maria", 1000.00, 0.01);
+		
+		x.saque(50.00);
+		y.saque(50.00);
+		
+		System.out.println(x.getSaldo());
+		System.out.println(y.getSaldo());
+		
 	}
 
 }
